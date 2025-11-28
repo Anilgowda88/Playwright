@@ -1,0 +1,43 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/Anilgowda88/Playwright.git'
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        bat 'npm ci'
+        bat 'npx playwright install --with-deps'
+      }
+    }
+
+    stage('Run Playwright Tests') {
+      steps {
+        bat 'npx playwright test --reporter=line'
+      }
+    }
+
+    stage('Archive Reports & Artifacts') {
+      steps {
+        // Archive Playwright HTML report
+        archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
+
+        // Archive test results (screenshots, videos, traces)
+        archiveArtifacts artifacts: 'test-results/**', fingerprint: true
+      }
+    }
+  }
+
+  post {
+    always {
+      echo 'Pipeline finished. Reports and artifacts archived.'
+    }
+    failure {
+      echo 'Tests failed. Check artifacts for debugging.'
+    }
+  }
+}
