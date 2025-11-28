@@ -1,0 +1,3 @@
+3
+String1 at index 0 doestnt match with String2 at index 0: String1 has 'Apple' vs String2 has 'apple'}
+String1 at index 2 doestnt match with String2 at index 2: String1 has 'Carrot' vs String2 has 'carrot'}

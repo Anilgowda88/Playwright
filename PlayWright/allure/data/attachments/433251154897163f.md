@@ -1,0 +1,60 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e6]:
+      - generic [ref=e10]:
+        - heading "Sherwin-Williams" [level=1] [ref=e12]:
+          - link "Sherwin-Williams" [ref=e13] [cursor=pointer]:
+            - /url: https://www.sherwin-williams.com/ClickInfo?evtype=CpgnClick&mpe_id=10011&intv_id=0&storeId=10151&catalogId=11051&langId=-1&expDataType=MarketingContent&expDataUniqueID=3177502&URL=StoreView%3fstoreId%3d10151%26catalogId%3d10001
+            - img "Sherwin-Williams" [ref=e14]
+        - generic:
+          - heading [level=1]
+    - main [ref=e15]:
+      - region "LOGIN" [ref=e20]
+    - contentinfo [ref=e24]:
+      - generic [ref=e25]:
+        - link "Sherwin-Williams" [ref=e26] [cursor=pointer]:
+          - /url: /
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - link "Need Help?" [ref=e29] [cursor=pointer]:
+              - /url: /contact-us
+          - listitem [ref=e30]:
+            - link "Returns" [ref=e31] [cursor=pointer]:
+              - /url: /returns
+          - listitem [ref=e32]:
+            - link "Privacy & Security Policy" [ref=e33] [cursor=pointer]:
+              - /url: http://privacy.sherwin-williams.com
+          - listitem [ref=e34]:
+            - link "Terms and Conditions of Sale" [ref=e35] [cursor=pointer]:
+              - /url: /terms-and-conditions
+          - listitem [ref=e36]:
+            - link "Terms of Use" [ref=e37] [cursor=pointer]:
+              - /url: /terms-of-use/
+          - listitem [ref=e38]:
+            - link "Your Privacy Choices" [ref=e39] [cursor=pointer]:
+              - /url: javascript:void(0);
+          - listitem [ref=e40]: ©2025 The Sherwin-Williams Company
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: "Customer Service:"
+        - heading "1-800-474-3794" [level=4] [ref=e43]
+  - dialog "Consent Banner" [ref=e44]:
+    - generic [ref=e45]:
+      - text: This website uses cookies and similar technologies to provide you with the best user experience and help us understand how our site is used. We also share information about your use of our website with our social media, advertising, and analytics partners. For more information on our use of cookies and data, please review our
+      - link "Privacy Policy" [ref=e46] [cursor=pointer]:
+        - /url: https://privacy.sherwin-williams.com/privacy-policy#jurisdiction-specific-disclosures
+      - text: . To manage your cookie preferences or to opt out of targeted advertising, please visit Cookie/Consent Preferences. By continuing to use our website, regardless of your cookie preferences, you agree to our
+      - link "Privacy Policy" [ref=e47] [cursor=pointer]:
+        - /url: https://privacy.sherwin-williams.com/privacy-policy
+      - text: and
+      - link "Terms of Use" [ref=e48] [cursor=pointer]:
+        - /url: https://www.sherwin-williams.com/terms-of-use
+      - text: .
+      - generic [ref=e49]:
+        - button "Accept All" [ref=e50]
+        - button "Reject All Non-Essential Cookies" [ref=e51]
+        - button "Your Privacy Choices" [ref=e52]
+  - iframe [ref=e53]
+```

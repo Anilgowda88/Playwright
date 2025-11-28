@@ -1,0 +1,3 @@
+Anilkumar is NOT a palindrome
+DAD is a palindrome
+MADAM is a palindrome

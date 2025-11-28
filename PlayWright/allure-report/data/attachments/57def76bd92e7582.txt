@@ -1,0 +1,10 @@
+0 is a Prime Number or Not: false
+1 is a Prime Number or Not: false
+2 is a Prime Number or Not: true
+3 is a Prime Number or Not: true
+4 is a Prime Number or Not: false
+5 is a Prime Number or Not: true
+6 is a Prime Number or Not: false
+7 is a Prime Number or Not: true
+8 is a Prime Number or Not: false
+9 is a Prime Number or Not: false

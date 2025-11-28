@@ -1,0 +1,7 @@
+11
+String1 at index 5 doestnt match with String2 at index 5: String1 has '#' vs String2 has 'u'}
+String1 at index 6 doestnt match with String2 at index 6: String1 has '$' vs String2 has 'm'}
+String1 at index 7 doestnt match with String2 at index 7: String1 has '%' vs String2 has 'a'}
+String1 at index 8 doestnt match with String2 at index 8: String1 has 'm' vs String2 has 'r'}
+String1 at index 9 doestnt match with String2 at index 9: String1 has 'a' vs String2 has '-'}
+String1 at index 10 doestnt match with String2 at index 10: String1 has 'r' vs String2 has '-'}

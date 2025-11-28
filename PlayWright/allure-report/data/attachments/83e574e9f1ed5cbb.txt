@@ -1,0 +1,18 @@
+{
+  Email: 'anilgowda88@gmail.com',
+  Password: 'Anilgowda88',
+  FirstName: 'Johny',
+  LastName: 'Monny',
+  Nickname: 'Sony',
+  Age: '34',
+  StreetAddress1: '5885 Carriage Meadows Dr',
+  StreetAddressLine2: 'Suite 4',
+  City: 'Cincinnati',
+  State: 'OH',
+  ZIP: '45202',
+  MobileNumber: '5134004568',
+  HomeAnniversaryMonth: 'JUN'
+}
+Excel Rows Length:  2
+USERNAME from .env: anilgowda88@gmail.com
+Sign In
