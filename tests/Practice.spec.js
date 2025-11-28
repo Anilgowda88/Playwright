@@ -3,7 +3,7 @@ const {ExcelReader} = require('./Utils/ExcelReaderUtilClass');
 const {ExcelWriter} = require('./Utils/ExcelWriteUtilClass');
 require('dotenv').config({ override: true });
 
-test('Login to Sherwin Account Git Upload',async ({page}) =>
+test('Login to Sherwin Account Git Upload and Jenkins',async ({page}) =>
 {
 await page.goto("https://www.sherwin-williams.com/");
 await page.getByLabel("Sign in Link").click();
