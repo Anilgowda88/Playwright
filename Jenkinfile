@@ -14,6 +14,17 @@ pipeline {
         bat 'npx playwright install --with-deps'
       }
     }
+    stage('Install Playwright Browsers') {
+      steps {
+        // Ensures Chromium, Firefox, WebKit are downloaded for Jenkins SYSTEM user
+        bat 'npx playwright install --with-deps'
+      }
+    }
+stage('Install Playwright Browsers') {
+  steps {
+    bat 'set PLAYWRIGHT_BROWSERS_PATH=%WORKSPACE%\\pw-browsers && npx playwright install --with-deps'
+  }
+}
 
     stage('Run Playwright Tests') {
       steps {
