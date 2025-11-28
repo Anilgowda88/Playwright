@@ -74,7 +74,7 @@ for (let i=0; i<maxLength;i++)
 }
 });
 
-test('Reverse a string git',async ({page}) =>
+test('Reverse a string git1',async ({page}) =>
 {
 const String = 'Anilkumar';
 const reverseString = String.split("").reverse().join("");
