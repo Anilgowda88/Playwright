@@ -46,6 +46,27 @@ await page.getByLabel("Sign in Link").click();
 //     await page.getByRole('button', { name: 'Log Out' }).click();
 // });
 
+test('Check for cookies',async ({page, context}) =>
+{
+// Get cookies
+const cookies = await context.cookies();
+console.log(cookies);
+
+// Add a cookie
+  await context.addCookies([{
+    name: 'session_id',
+    value: 'abc123',
+    domain: 'example.com',
+    path: '/',
+    httpOnly: true,
+    secure: true
+  }]);
+
+const updatedCookies = await context.cookies();
+console.log(updatedCookies);
+});
+
+
 test('String Comparison',async ({page}) =>
 {
 const String1 = 'Anilk#$%mar';
@@ -133,42 +154,56 @@ for (let j=0;j<numbers.length;j++)
 }
 });
 
-test('Check for cookies',async ({page, context}) =>
+test('Check for factorial',async ({page, context}) =>
 {
-// Get cookies
-const cookies = await context.cookies();
-console.log(cookies);
-
-// Add a cookie
-  await context.addCookies([{
-    name: 'session_id',
-    value: 'abc123',
-    domain: 'example.com',
-    path: '/',
-    httpOnly: true,
-    secure: true
-  }]);
-
-const updatedCookies = await context.cookies();
-console.log(updatedCookies);
+    function factorial(n){
+        if (n===0) return 1;
+        return n*factorial(n-1);
+    }
+    const FactorialArray = [1,2,3,4,5,6,7,8,9,10]
+    for(let i=0;i<FactorialArray.length;i++)
+    {
+    console.log(`Factorial of ${FactorialArray[i]} is : ${factorial(i)}`);
+    }
 });
 
-// test('Check for cookies',async ({page, context}) =>
-// {
-// // Get cookies
-// const cookies = await context.cookies();
-// console.log(cookies);
+test('Check for fibonacci',async ({page, context}) =>
+{
+    function fibonacci(n){
+        let a=0, b=1, result = [];
+        for (let i=0;i<n;i++)
+        { result.push(a);
+        [a,b] = [b, a+b];
+    }
+    return result;
+}
+    console.log(`fibonacci is : ${fibonacci(6)}`);
+});
 
-// // Add a cookie
-//   await context.addCookies([{
-//     name: 'session_id',
-//     value: 'abc123',
-//     domain: 'example.com',
-//     path: '/',
-//     httpOnly: true,
-//     secure: true
-//   }]);
+test.only('Captitalize first letter of every word',async ({page, context}) =>
+{
+    const string = 'anilkumar nagaraju loves his family';
+    const Captitalize = string.split(' ').map(word => word.charAt(0).toUpperCase()+word.slice(1)).join(' ');
+    console.log(`Captitalized sentence is : ${Captitalize}`);
+});
 
-// const updatedCookies = await context.cookies();
-// console.log(updatedCookies);
-// });
+test('Captitalize every letter of every word',async ({page, context}) =>
+{
+    const string = 'anilkumar nagaraju loves his family';
+    const Captitalize = string.split(' ').map(word => word.toUpperCase()).join(' ');
+    console.log(`Captitalized sentence is : ${Captitalize}`);
+});
+
+test('Array Intersection and Not Intersection',async ({page, context}) =>
+{
+    const arr1 = [1, 2, 3, 4];
+    const arr2 = [2, 3, 4, 5];
+    const intersection = arr1.filter(val => arr2.includes(val));
+    const difference   = arr1.filter(val => !arr2.includes(val));
+    console.log("Intersection:", intersection);
+    console.log("Difference:", difference);
+});
+
+
+
+
