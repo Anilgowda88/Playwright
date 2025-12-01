@@ -260,7 +260,7 @@ const capStr = str.split(' ').map(word => word.toUpperCase()).join(' ');
 console.log(capStr);
 });
 
-test.only('Array Intersection and Not Intersection Anil',async ({page, context}) =>
+test('Array Intersection and Not Intersection Anil',async ({page, context}) =>
 {
     const arr1 = [1,2,3,4,5];
     const arr2 = [3,4,5,6,7];
