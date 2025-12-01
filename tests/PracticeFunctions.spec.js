@@ -1,70 +1,5 @@
 const {test, expect} = require ('@playwright/test');
-const {ExcelReader} = require('./Utils/ExcelReaderUtilClass');
-const {ExcelWriter} = require('./Utils/ExcelWriteUtilClass');
 require('dotenv').config({ override: true });
-
-test('Login to Sherwin Account Git Upload and Jenkins Updated11121',async ({page}) =>
-{
-await page.goto("https://www.sherwin-williams.com/");
-await page.getByLabel("Sign in Link").click();
-    const ExpectedSherwinTitle = 'My Account - Sherwin-Williams';
-    await page.getByRole('textbox', { name: 'Email' }).fill(process.env.TEST_USERNAME);
-    await page.getByRole('textbox', { name: 'password' }).fill(process.env.TEST_PASSWORD);
-    await page.getByRole('button', {name: 'Sign In', exact: true} ).click();
-    const SherwinHomePageTitle = await page.title();
-    expect(SherwinHomePageTitle).toBe.ExpectedSherwinTitle;
-    await page.getByRole('button', { name: 'Log Out' }).click();
-});
-
-// test('Login to Sherwin Account',async ({page}) =>
-// {
-// const { chromium } = require('@playwright/test');
-// const browser = await chromium.launch();
-// const context = await browser.newContext(); // isolated session
-// const page = await context.newPage();
-// await page.goto("https://www.sherwin-williams.com/");
-
-// await context.addCookies([{
-//   name: 'auth_token',
-//   value: 'xyz123',
-//   domain: 'example.com',
-//   path: '/',
-//   httpOnly: true,
-//   secure: true
-// }]);
-
-// const cookies = await context.cookies();
-// console.log(cookies);
-
-// await page.getByLabel("Sign in Link").click();
-//     const ExpectedSherwinTitle = 'My Account - Sherwin-Williams';
-//     await page.getByRole('textbox', { name: 'Email' }).fill(process.env.TEST_USERNAME);
-//     await page.getByRole('textbox', { name: 'password' }).fill(process.env.TEST_PASSWORD);
-//     await page.getByRole('button', {name: 'Sign In', exact: true} ).click();
-//     const SherwinHomePageTitle = await page.title();
-//     expect(SherwinHomePageTitle).toBe.ExpectedSherwinTitle;
-//     await page.getByRole('button', { name: 'Log Out' }).click();
-// });
-
-test('Check for cookies',async ({page, context}) =>
-{
-// Get cookies
-const cookies = await context.cookies();
-console.log(cookies);
-
-// Add a cookie
-  await context.addCookies([{
-    name: 'session_id',
-    value: 'abc123',
-    domain: 'example.com',
-    path: '/',
-    httpOnly: true,
-    secure: true
-  }]);
-
-const updatedCookies = await context.cookies();
-console.log(updatedCookies);
-});
 
 test('String Comparison for character to character',async ({page}) =>
 {
@@ -139,7 +74,7 @@ function isPrime(Number){
     console.log(isPrime(18));
 });
 
-test('Check for Prime Number1 Array',async ({page}) =>
+test('Check for Prime Number in Array',async ({page}) =>
 {
 const PrimeArray = [0,1,2,3,4,5,6,7,8,9];
 function isPrime(n){
@@ -169,19 +104,6 @@ test('Check for factorial',async ({page, context}) =>
 });
 
 test('Check for fibonacci',async ({page, context}) =>
-{
-    function fibonacci(n){
-        let a=0, b=1, result = [];
-        for (let i=0;i<n;i++)
-        { result.push(a);
-        [a,b] = [b, a+b];
-    }
-    return result;
-}
-    console.log(`fibonacci is : ${fibonacci(6)}`);
-});
-
-test('Check for fibonacci2',async ({page, context}) =>
 {
     const fibNum = 6;    let a=0;    let b=1;    const results = [];
         for (let i=0;i<fibNum;i++){ 
@@ -213,4 +135,135 @@ test('Array Intersection and Not Intersection',async ({page, context}) =>
     const difference   = arr1.filter(val => !arr2.includes(val));
     console.log("Intersection:", intersection);
     console.log("Difference:", difference);
+}); 
+
+
+test('String Comparison for character to character Anil',async ({page}) =>
+{
+    const str1 = 'Anilkumar';
+    const str2 = 'Anil';
+    const maxLen = Math.max(str1.length, str2.length);
+    for (let i=0;i<=maxLen;i++)
+    {
+    if(str1[i] == str2[i])
+        console.log (`${str1[i] || '-'} matches with ${str2[i] || '-'}`);
+    else {
+        console.log(`${str1[i]|| '-'} does not match with ${str2[i]|| '-'}`)
+    }
+}
+});
+
+test('Whole String Comparison Anil',async ({page}) =>
+{
+ const str1 = 'Anilkumar';
+    const str2 = 'Anil';
+    if(str1 == str2)
+        console.log (`${str1} matches with ${str2}`);
+    else {
+        console.log (`${str1} does not match with ${str2}`);
+    }
+});
+
+test('Array Comparison Anil',async ({page}) =>
+{
+    const arra1 = ['Anil', 'Navya', 'Sou'];
+    const arra2 = ['Anil', 'navya', 'sou'];
+    const maxLen = Math.max(arra1.length, arra2.length);
+    for (let i=0;i<maxLen;i++)
+    {
+        if(arra1[i]==arra2[i])
+            console.log(`${arra1[i]} matches with ${arra2[i]}`)
+        else {
+            console.log(`${arra1[i]} does not match with ${arra2[i]}`)
+        }
+    }
+});
+
+test('Reverse a string Anil',async ({page}) =>
+{
+const str = 'Anilkumar'
+const revStr = str.split('').reverse().join('')
+console.log (revStr);
+});
+
+test('Check for palindrome Anil',async ({page}) =>
+{
+const str = 'Anil';
+const revStr = str.split('').reverse().join('');
+if (str == revStr)
+    console.log(`${str} is a palindrome`);
+else {console.log(`${str} is NOT a palindrome`);}
+});
+
+test('Check for Frequency of Char Anil',async ({page}) =>
+{
+const str = 'souhaard';
+const freq = {}
+for (let char of str)
+{
+    freq[char] = (freq[char]||0)+1;
+}
+console.log(freq);
+});
+
+test('Check for Prime Number Anil',async ({page}) =>
+{
+function isPrime(Number)
+{
+    if (Number<2) return false
+    else{
+        for(let i=0;i<=Math.sqrt(Number);i++)
+        {
+            if(Number%i==0) return false
+        }
+        return true
+    }
+}
+console.log(isPrime(18))
+});
+
+// test('Check for Prime Number in Array',async ({page}) =>
+// {
+
+// });
+
+test('Check for factorial Anil',async ({page, context}) =>
+{
+ function factorial(number){
+    if(number ==0) return 1;
+    else return number*factorial(number-1);
+ }
+ console.log(factorial(4));
+});
+
+test('Check for fibonacci Anil',async ({page, context}) =>
+{
+    const fibN = 6; let a=0; let b=1; const res =[];
+        for (let i=0;i<fibN;i++){
+        res.push(a);
+        [a,b] = [b, a+b]
+    }
+    console.log(res);
+});
+
+test('Captitalize first letter of every word Anil',async ({page, context}) =>
+{
+const str = 'anilkumar loves his family';
+const capStr = str.split(' ').map(word => word.charAt(0).toUpperCase()+word.slice(1)).join(' ');
+console.log(capStr);
+});
+
+test('Captitalize every letter of every word Anil',async ({page, context}) =>
+{
+const str = 'anilkumar loves his family';
+const capStr = str.split(' ').map(word => word.toUpperCase()).join(' ');
+console.log(capStr);
+});
+
+test.only('Array Intersection and Not Intersection Anil',async ({page, context}) =>
+{
+    const arr1 = [1,2,3,4,5];
+    const arr2 = [3,4,5,6,7];
+    const intersection = arr1.filter(val => arr2.includes(val));
+    console.log(intersection);
 }); 
