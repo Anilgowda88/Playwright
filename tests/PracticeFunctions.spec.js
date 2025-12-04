@@ -1,7 +1,7 @@
 const {test, expect} = require ('@playwright/test');
 require('dotenv').config({ override: true });
 
-test('String Comparison for character to character',async ({page}) =>
+test.only('String Comparison for character to character',async ({page}) =>
 {
 const String1 = 'Anilk#$%mar';
 const String2 = 'Anilkumar';
